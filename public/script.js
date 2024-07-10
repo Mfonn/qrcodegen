@@ -5,28 +5,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggleButton = document.getElementById('themeToggle');
 
     // Make sure you include the QRCode library in your HTML
-    // <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     // <script src="https://cdn.jsdelivr.net/npm/qrcode@latest/build/qrcode.min.js"></script>
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
+        const name = document.getElementById('name').value.trim();  // Get the name
         const emails = document.getElementById('emails').value.trim();
         const phoneNumbers = document.getElementById('phoneNumbers').value.trim();
         const urls = document.getElementById('urls').value.trim();
 
-        const allInputs = [emails, phoneNumbers, urls].filter(Boolean).join('\n');
+        // Prepare vCard data
+        const vCardData = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${name}
+${emails.split('\n').map(email => `EMAIL:${email}`).join('\n')}
+${phoneNumbers.split('\n').map(phone => `TEL:${phone}`).join('\n')}
+${urls.split('\n').map(url => `URL:${url}`).join('\n')}
+END:VCARD
+        `.trim();
 
         qrCodeContainer.innerHTML = '';
         textToCopy.textContent = '';
 
         try {
-            // Generate QR code and set it as the src of the img element
-            const qrCode = await QRCode.toDataURL(allInputs, { errorCorrectionLevel: 'H' });
+            // Generate QR code with vCard data
+            const qrCode = await QRCode.toDataURL(vCardData, { errorCorrectionLevel: 'H' });
             const qrCodeImage = document.createElement('img');
             qrCodeImage.src = qrCode;
             qrCodeContainer.appendChild(qrCodeImage);
-            textToCopy.textContent = allInputs;
+            textToCopy.textContent = vCardData;  // Display the vCard data
         } catch (error) {
             console.error('Error generating QR code:', error);
         }
