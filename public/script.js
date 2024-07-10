@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const textToCopy = document.getElementById('textToCopy');
     const themeToggleButton = document.getElementById('themeToggle');
 
+    // Make sure you include the QRCode library in your HTML
+    // <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    // <script src="https://cdn.jsdelivr.net/npm/qrcode@latest/build/qrcode.min.js"></script>
+
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -17,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         textToCopy.textContent = '';
 
         try {
+            // Generate QR code and set it as the src of the img element
             const qrCode = await QRCode.toDataURL(allInputs, { errorCorrectionLevel: 'H' });
             const qrCodeImage = document.createElement('img');
             qrCodeImage.src = qrCode;

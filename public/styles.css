@@ -14,6 +14,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     text-align: center;
+    padding-bottom: 6em; /* Space for the wave effect */
 }
 
 /* Animated gradient background */
@@ -84,9 +85,10 @@ body {
     border-radius: 15px;
     padding: 30px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    width: 80%;
+    width: 70%;
     max-width: 600px;
     margin: 0 auto;
+    margin-top: 40px;
     z-index: 1;
     animation: breathe 4s ease-in-out infinite; /* Breathing animation */
 }
@@ -151,7 +153,8 @@ label {
 
 /* Textarea styling */
 textarea {
-    width: 80%; /* Set textarea width to 80% */
+    width: 80%; /* Full width */
+    max-width: 100%; /* Ensure it doesn't exceed container width */
     padding: 12px;
     border-radius: 10px;
     border: 2px solid #00b7ff;
@@ -238,4 +241,64 @@ body.light-mode textarea {
 /* Adjusting the position of waves and container */
 body {
     padding-bottom: 6em; /* Space for the wave effect */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin-top: 40px;
+    }
+    .form-group {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    textarea {
+        width: 70%;
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .theme-toggle {
+        padding: 10px 15px;
+        font-size: 0.9em;
+        top: 10px;
+        left: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    button {
+        padding: 8px 15px;
+        font-size: 0.8em;
+    }
+
+    textarea {
+        padding: 8px;
+        font-size: 0.8em;
+    }
+
+    .theme-toggle {
+        padding: 8px 12px;
+        font-size: 0.8em;
+        top: 5px;
+        left: 5px;
+    }
 }
