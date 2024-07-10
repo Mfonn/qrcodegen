@@ -2,7 +2,7 @@
   "name": "qrcodegen",
   "version": "1.0.0",
   "description": "\"QR Code Generator\" is a free, responsive & open-source online QR Code generating web application built with HTML, CSS, JS. This app will help you to create your own QR Code easily. Try Now!",
-  "main": "server.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
