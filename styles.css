@@ -1,37 +1,28 @@
-/* General body styling */
+/* Base Styles */
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    overflow: auto;
-    background: linear-gradient(315deg, rgba(0, 183, 255, 1) 0%, rgba(60, 132, 206, 1) 25%, rgba(0, 183, 255, 1) 50%, rgba(0, 205, 255, 1) 75%, rgba(0, 183, 255, 1) 100%);
+    overflow: hidden;
+    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
     background-attachment: fixed;
-    color: #ffffff;
-    transition: background 0.3s, color 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    text-align: center;
-}
-
-/* Animated gradient background */
-@keyframes gradient {
+  }
+  
+  @keyframes gradient {
     0% {
-        background-position: 0% 0%;
+      background-position: 0% 0%;
     }
     50% {
-        background-position: 100% 100%;
+      background-position: 100% 100%;
     }
     100% {
-        background-position: 0% 0%;
+      background-position: 0% 0%;
     }
-}
-
-/* Waves styling */
-.wave {
-    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .wave {
+    background: rgba(255, 255, 255, 0.25);
     border-radius: 1000% 1000% 0 0;
     position: fixed;
     width: 200%;
@@ -42,200 +33,171 @@ body {
     bottom: 0;
     left: 0;
     z-index: -1;
-}
-
-.wave:nth-of-type(2) {
+  }
+  
+  .wave:nth-of-type(2) {
     bottom: -1.25em;
     animation: wave 18s linear reverse infinite;
     opacity: 0.8;
-}
-
-.wave:nth-of-type(3) {
+  }
+  
+  .wave:nth-of-type(3) {
     bottom: -2.5em;
     animation: wave 20s -1s reverse infinite;
     opacity: 0.9;
-}
-
-@keyframes wave {
+  }
+  
+  @keyframes wave {
     2% {
-        transform: translateX(1);
+      transform: translateX(1);
     }
-
     25% {
-        transform: translateX(-25%);
+      transform: translateX(-25%);
     }
-
     50% {
-        transform: translateX(-50%);
+      transform: translateX(-50%);
     }
-
     75% {
-        transform: translateX(-25%);
+      transform: translateX(-25%);
     }
-
     100% {
-        transform: translateX(1);
+      transform: translateX(1);
     }
-}
-
-/* Container styling */
-.container {
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    width: 80%;
+  }
+  
+  /* Container Styles */
+  .container {
+    position: relative;
+    width: 90%;
     max-width: 600px;
     margin: 0 auto;
-    z-index: 1;
-    animation: breathe 4s ease-in-out infinite; /* Breathing animation */
-}
-
-/* Breathing animation */
-@keyframes breathe {
+    padding: 2em;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: breathing 4s ease-in-out infinite;
+  }
+  
+  @keyframes breathing {
     0% {
-        transform: scale(1);
+      transform: scale(1);
     }
     50% {
-        transform: scale(1.03);
+      transform: scale(1.05);
     }
     100% {
-        transform: scale(1);
+      transform: scale(1);
     }
-}
-
-/* Heading styling */
-h1 {
-    margin-bottom: 20px;
-    font-size: 2.5em;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-/* Button styling */
-button {
-    background-color: #00b7ff;
-    color: #fff;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 10px;
-    cursor: pointer;
+  }
+  
+  /* Form Styles */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  label {
     font-size: 1em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-button:hover {
-    background-color: #009adf;
-    transform: scale(1.05);
-}
-
-/* Form styling */
-form {
-    margin-bottom: 20px;
-}
-
-/* Form group styling */
-.form-group {
-    margin-bottom: 20px;
+    color: #333;
     text-align: left;
-}
-
-/* Label styling */
-label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #ffffff;
-    font-size: 1em;
-}
-
-/* Textarea styling */
-textarea {
-    width: 80%; /* Set textarea width to 80% */
-    padding: 12px;
-    border-radius: 10px;
-    border: 2px solid #00b7ff;
-    font-size: 1em;
-    resize: vertical;
-    background: #ffffff;
-    color: #333;
-    transition: border-color 0.3s ease, background 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Adjusted textarea for better fit */
-textarea {
-    min-height: 80px; /* Set a minimum height */
-}
-
-/* Textarea focus styling */
-textarea:focus {
-    border-color: #009adf;
-    background: #f0f0f0;
+  }
+  
+  input, textarea, button {
+    padding: 0.75em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     outline: none;
-}
-
-/* QR Code container styling */
-.qr-code-container {
-    margin-top: 20px;
-}
-
-/* Text to copy container styling */
-.text-to-copy {
-    margin-top: 20px;
-    font-family: monospace;
-    white-space: pre-wrap;
-}
-
-/* Theme toggle button styling */
-.theme-toggle {
-    background-color: #00b7ff;
-    color: #fff;
-    position: fixed; /* Fixed position for top left corner */
-    top: 20px;
-    left: 20px;
-    padding: 12px 20px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index: 2; /* Ensure it is on top of the content */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.theme-toggle:hover {
-    background-color: #009adf;
-    transform: scale(1.05);
-}
-
-/* Dark mode styles */
-body.dark-mode {
-    background: linear-gradient(315deg, rgba(20,20,20,1) 0%, rgba(30,30,30,1) 25%, rgba(20,20,20,1) 50%, rgba(10,10,10,1) 75%, rgba(20,20,20,1) 100%);
-    color: #e0e0e0;
-}
-
-/* Light mode styles */
-body.light-mode {
-    background: linear-gradient(315deg, rgba(0,183,255,1) 0%, rgba(60,132,206,1) 25%, rgba(0,183,255,1) 50%, rgba(0,205,255,1) 75%, rgba(0,183,255,1) 100%);
-    color: #ffffff;
-}
-
-/* Dark mode textarea styling */
-body.dark-mode textarea {
-    background: #333;
-    color: #fff;
-    border: 2px solid #555;
-}
-
-/* Light mode textarea styling */
-body.light-mode textarea {
-    background: #fff;
+  }
+  
+  input, textarea {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  button {
+    background: linear-gradient(135deg, rgba(0,0,0,0.1), rgba(255,255,255,0.3));
     color: #333;
-    border: 2px solid #00b7ff;
-}
-
-/* Adjusting the position of waves and container */
-body {
-    padding-bottom: 6em; /* Space for the wave effect */
-}
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+  }
+  
+  /* Dark Mode Styles */
+  body.dark-mode {
+    background: linear-gradient(315deg, rgba(21, 21, 21, 1) 3%, rgba(48, 48, 48, 1) 38%, rgba(80, 80, 80, 1) 68%, rgba(51, 51, 51, 1) 98%);
+  }
+  
+  body.dark-mode .container {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #f0f0f0;
+  }
+  
+  body.dark-mode input, body.dark-mode textarea, body.dark-mode button {
+    border: 1px solid #333;
+  }
+  
+  body.dark-mode button {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.3));
+    color: #f0f0f0;
+  }
+  
+  body.dark-mode button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #000;
+  }
+  
+  /* Toggle Button Styles */
+  #toggle-theme {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  #toggle-theme:hover {
+    background: rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1.5em;
+      width: 95%;
+    }
+  
+    input, textarea {
+      width: 100%;
+    }
+  
+    textarea {
+      height: 80px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #toggle-theme {
+      padding: 0.5em;
+      font-size: 1em;
+    }
+  }
+  
