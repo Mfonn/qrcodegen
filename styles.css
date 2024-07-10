@@ -68,9 +68,11 @@ body {
   /* Container Styles */
   .container {
     position: relative;
-    width: 90%;
+    width: 70%;
     max-width: 600px;
-    margin: 0 auto;
+    height: 70%;
+    max-height: 600px;
+    margin: auto;
     padding: 2em;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
@@ -159,6 +161,10 @@ body {
     color: #000;
   }
   
+  body.dark-mode h1 {
+    color: #fff;
+  }
+  
   /* Toggle Button Styles */
   #toggle-theme {
     position: fixed;
@@ -182,7 +188,11 @@ body {
   @media (max-width: 768px) {
     .container {
       padding: 1.5em;
-      width: 95%;
+      width: 70%;
+      height: 70%;
+      max-width: 100%;
+      max-height: 100%;
+      margin: auto;
     }
   
     input, textarea {
