@@ -1,36 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Generator</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button id="themeToggle" class="theme-toggle">🌙</button>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="container">
-        <h1>QR Code Generator</h1>
-        <form id="qrForm">
-            <div class="form-group">
-                <label for="emails">Email Addresses (one per line):</label>
-                <textarea id="emails" name="emails" placeholder="example@example.com"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="phoneNumbers">Phone Numbers (one per line):</label>
-                <textarea id="phoneNumbers" name="phoneNumbers" placeholder="+1234567890"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="urls">URLs (one per line):</label>
-                <textarea id="urls" name="urls" placeholder="https://example.com"></textarea>
-            </div>
-            <button type="submit">Generate QR Code</button>
-        </form>
-        <div id="qrCodeContainer" class="qr-code-container"></div>
-        <pre id="textToCopy" class="text-to-copy"></pre>
-    </div>
-    <script src="script.js"></script>
+  <button id="toggle-theme" class="toggle-button">🌙</button>
+  <div class="container">
+    <h1>QR Code Generator</h1>
+    <form id="qr-form">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter email" required>
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+      <button type="submit">Generate QR Code</button>
+    </form>
+    <div id="qrcode"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.0/build/qrcode.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

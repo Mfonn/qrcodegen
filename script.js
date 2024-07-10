@@ -1,45 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('qrForm');
-    const qrCodeContainer = document.getElementById('qrCodeContainer');
-    const textToCopy = document.getElementById('textToCopy');
-    const themeToggleButton = document.getElementById('themeToggle');
-
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        const emails = document.getElementById('emails').value.trim();
-        const phoneNumbers = document.getElementById('phoneNumbers').value.trim();
-        const urls = document.getElementById('urls').value.trim();
-
-        const allInputs = [emails, phoneNumbers, urls].filter(Boolean).join('\n');
-
-        qrCodeContainer.innerHTML = '';
-        textToCopy.textContent = '';
-
-        try {
-            const qrCode = await QRCode.toDataURL(allInputs, { errorCorrectionLevel: 'H' });
-            const qrCodeImage = document.createElement('img');
-            qrCodeImage.src = qrCode;
-            qrCodeContainer.appendChild(qrCodeImage);
-            textToCopy.textContent = allInputs;
-        } catch (error) {
-            console.error('Error generating QR code:', error);
-        }
+    const toggleButton = document.getElementById('toggle-theme');
+    const qrForm = document.getElementById('qr-form');
+    const qrcodeElement = document.getElementById('qrcode');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    const applyTheme = (darkMode) => {
+      document.body.classList.toggle('dark-mode', darkMode);
+      toggleButton.textContent = darkMode ? '🌞' : '🌙';
+    };
+    
+    // Initialize theme based on system preference
+    applyTheme(prefersDarkScheme.matches);
+    
+    // Toggle theme on button click
+    toggleButton.addEventListener('click', () => {
+      applyTheme(!document.body.classList.contains('dark-mode'));
     });
-
-    // Toggle Dark/Light Mode
-    themeToggleButton.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        document.body.classList.toggle('light-mode');
-        themeToggleButton.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '🌞';
+    
+    // Handle form submission
+    qrForm.addEventListener('submit', (event) => {
+      event.preventDefault();  // Prevent form from refreshing the page
+      
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+  
+      // Combine email and phone into one string to encode in QR Code
+      const qrText = `Email: ${email}\nPhone: ${phone}`;
+      
+      // Clear previous QR code
+      qrcodeElement.innerHTML = '';
+  
+      // Generate new QR code
+      new QRCode(qrcodeElement, {
+        text: qrText,
+        width: 200,
+        height: 200,
+        colorDark : '#000000',
+        colorLight : '#ffffff',
+        correctLevel : QRCode.CorrectLevel.H
+      });
     });
-
-    // Set initial mode based on system preference
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark-mode');
-        themeToggleButton.textContent = '🌙';
-    } else {
-        document.body.classList.add('light-mode');
-        themeToggleButton.textContent = '🌞';
-    }
-});
+  });
+  
