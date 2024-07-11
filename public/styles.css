@@ -124,6 +124,7 @@ button {
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px; /* Space above the button */
 }
 
 button:hover {
@@ -136,10 +137,17 @@ form {
     margin-bottom: 20px;
 }
 
+/* Form row styling for side-by-side layout */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between form groups */
+}
+
 /* Form group styling */
 .form-group {
-    margin-bottom: 20px;
-    text-align: left;
+    flex: 1;
+    min-width: 200px; /* Minimum width to ensure form fields don’t get too small */
 }
 
 /* Label styling */
@@ -151,11 +159,10 @@ label {
     font-size: 1em;
 }
 
-/* Textarea styling */
+/* Textarea and input field styling */
 textarea, input[type="text"] {
     width: 80%; /* Full width */
-    max-width: 100%; /* Ensure it doesn't exceed container width */
-    padding: 12px;
+    padding: 14px; /* Increased padding for comfort */
     border-radius: 10px;
     border: 2px solid #00b7ff;
     font-size: 1em;
@@ -168,12 +175,14 @@ textarea, input[type="text"] {
 
 /* Adjusted textarea for better fit */
 textarea {
-    min-height: 80px; /* Set a minimum height */
+    min-height: 35px; /* Set a minimum height */
+    margin-bottom: 20px; /* Space between textareas */
 }
 
 /* Input field styling */
 input[type="text"] {
     height: 48px; /* Consistent height */
+    margin-bottom: 20px; /* Space below input fields */
 }
 
 /* Textarea and input focus styling */
@@ -254,8 +263,14 @@ body {
         padding: 20px;
         margin-top: 40px;
     }
+
+    .form-row {
+        flex-direction: column;
+    }
+
     .form-group {
-        text-align: center;
+        margin-bottom: 15px;
+        width: 100%;
     }
 
     h1 {
@@ -268,8 +283,8 @@ body {
     }
 
     textarea, input[type="text"] {
-        width: 70%;
-        padding: 10px;
+        width: 80%;
+        padding: 12px;
         font-size: 0.9em;
     }
 

@@ -14,44 +14,52 @@
     <div class="container">
         <h1>QR Code Generator</h1>
         <form id="qrForm">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <textarea name="name" id="name" placeholder="Enter Name" required></textarea>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <textarea name="name" id="name" placeholder="Enter Name" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" placeholder="Enter Address"></textarea>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="address">Address</label>
-                <textarea id="address" name="address" placeholder="Enter Address"></textarea>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="emails">Email Addresses (one per line):</label>
+                    <textarea id="emails" name="emails" placeholder="example@example.com"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumbers">Phone Numbers (one per line):</label>
+                    <textarea id="phoneNumbers" name="phoneNumbers" placeholder="+1234567890"></textarea>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="emails">Email Addresses (one per line):</label>
-                <textarea id="emails" name="emails" placeholder="example@example.com"></textarea>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="urls">URLs (one per line):</label>
+                    <textarea id="urls" name="urls" placeholder="https://example.com"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn Profile</label>
+                    <input type="text" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/your-profile">
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="phoneNumbers">Phone Numbers (one per line):</label>
-                <textarea id="phoneNumbers" name="phoneNumbers" placeholder="+1234567890"></textarea>
-            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="facebook">Facebook Profile</label>
+                    <input type="text" id="facebook" name="facebook" placeholder="https://facebook.com/your-profile">
+                </div>
 
-            <div class="form-group">
-                <label for="urls">URLs (one per line):</label>
-                <textarea id="urls" name="urls" placeholder="https://example.com"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="linkedin">LinkedIn Profile</label>
-                <input type="text" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/your-profile">
-            </div>
-
-            <div class="form-group">
-                <label for="facebook">Facebook Profile</label>
-                <input type="text" id="facebook" name="facebook" placeholder="https://facebook.com/your-profile">
-            </div>
-
-            <div class="form-group">
-                <label for="instagram">Instagram Profile</label>
-                <input type="text" id="instagram" name="instagram" placeholder="https://instagram.com/your-profile">
+                <div class="form-group">
+                    <label for="instagram">Instagram Profile</label>
+                    <input type="text" id="instagram" name="instagram" placeholder="https://instagram.com/your-profile">
+                </div>
             </div>
 
             <button type="submit">Generate QR Code</button>
