@@ -11,18 +11,26 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         const name = document.getElementById('name').value.trim();  // Get the name
+        const address = document.getElementById('address').value.trim();  // Get the address
         const emails = document.getElementById('emails').value.trim();
         const phoneNumbers = document.getElementById('phoneNumbers').value.trim();
         const urls = document.getElementById('urls').value.trim();
+        const linkedin = document.getElementById('linkedin').value.trim();
+        const facebook = document.getElementById('facebook').value.trim();
+        const instagram = document.getElementById('instagram').value.trim();
 
         // Prepare vCard data
         const vCardData = `
 BEGIN:VCARD
 VERSION:3.0
 FN:${name}
+${address ? `ADR:;;${address};;;;` : ''}
 ${emails.split('\n').map(email => `EMAIL:${email}`).join('\n')}
 ${phoneNumbers.split('\n').map(phone => `TEL:${phone}`).join('\n')}
 ${urls.split('\n').map(url => `URL:${url}`).join('\n')}
+${linkedin ? `X-LINKEDIN:${linkedin}` : ''}
+${facebook ? `X-FACEBOOK:${facebook}` : ''}
+${instagram ? `X-INSTAGRAM:${instagram}` : ''}
 END:VCARD
         `.trim();
 

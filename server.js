@@ -9,16 +9,27 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.post('/generate-qrcode', async (req, res) => {
-    const { emails, phoneNumbers, urls } = req.body;
+    const { name, address, emails, phoneNumbers, urls, linkedin, facebook, instagram } = req.body;
+
+    // Construct the text to encode in the QR code
     const textToEncode = `
+        Name: ${name}
+        Address: ${address}
+
         Emails:
         ${emails}
-        
+
         Phone Numbers:
         ${phoneNumbers}
-        
+
         URLs:
         ${urls}
+
+        LinkedIn: ${linkedin}
+
+        Facebook: ${facebook}
+
+        Instagram: ${instagram}
     `;
 
     try {

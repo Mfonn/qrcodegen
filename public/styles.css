@@ -152,7 +152,7 @@ label {
 }
 
 /* Textarea styling */
-textarea {
+textarea, input[type="text"] {
     width: 80%; /* Full width */
     max-width: 100%; /* Ensure it doesn't exceed container width */
     padding: 12px;
@@ -171,8 +171,13 @@ textarea {
     min-height: 80px; /* Set a minimum height */
 }
 
-/* Textarea focus styling */
-textarea:focus {
+/* Input field styling */
+input[type="text"] {
+    height: 48px; /* Consistent height */
+}
+
+/* Textarea and input focus styling */
+textarea:focus, input[type="text"]:focus {
     border-color: #009adf;
     background: #f0f0f0;
     outline: none;
@@ -225,14 +230,14 @@ body.light-mode {
 }
 
 /* Dark mode textarea styling */
-body.dark-mode textarea {
+body.dark-mode textarea, body.dark-mode input[type="text"] {
     background: #333;
     color: #fff;
     border: 2px solid #555;
 }
 
 /* Light mode textarea styling */
-body.light-mode textarea {
+body.light-mode textarea, body.light-mode input[type="text"] {
     background: #fff;
     color: #333;
     border: 2px solid #00b7ff;
@@ -262,7 +267,7 @@ body {
         font-size: 0.9em;
     }
 
-    textarea {
+    textarea, input[type="text"] {
         width: 70%;
         padding: 10px;
         font-size: 0.9em;
@@ -290,7 +295,7 @@ body {
         font-size: 0.8em;
     }
 
-    textarea {
+    textarea, input[type="text"] {
         padding: 8px;
         font-size: 0.8em;
     }
