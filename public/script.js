@@ -4,9 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const textToCopy = document.getElementById('textToCopy');
     const themeToggleButton = document.getElementById('themeToggle');
 
-    // Make sure you include the QRCode library in your HTML
-    // <script src="https://cdn.jsdelivr.net/npm/qrcode@latest/build/qrcode.min.js"></script>
-
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -15,9 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const emails = document.getElementById('emails').value.trim();
         const phoneNumbers = document.getElementById('phoneNumbers').value.trim();
         const urls = document.getElementById('urls').value.trim();
-        const linkedin = document.getElementById('linkedin').value.trim();
-        const facebook = document.getElementById('facebook').value.trim();
-        const instagram = document.getElementById('instagram').value.trim();
+        const notes = document.getElementById('notes').value.trim();  // Get the notes
 
         // Prepare vCard data
         const vCardData = `
@@ -28,9 +23,7 @@ ${address ? `ADR:;;${address};;;;` : ''}
 ${emails.split('\n').map(email => `EMAIL:${email}`).join('\n')}
 ${phoneNumbers.split('\n').map(phone => `TEL:${phone}`).join('\n')}
 ${urls.split('\n').map(url => `URL:${url}`).join('\n')}
-${linkedin ? `X-LINKEDIN:${linkedin}` : ''}
-${facebook ? `X-FACEBOOK:${facebook}` : ''}
-${instagram ? `X-INSTAGRAM:${instagram}` : ''}
+${notes ? `NOTE:${notes}` : ''}
 END:VCARD
         `.trim();
 
